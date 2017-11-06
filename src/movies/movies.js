@@ -7,7 +7,7 @@ export default class Movie extends Component {
   constructor(props){
     super(props);
     this.movieName = props.movieName;
-    this.movieId = props.movieID;
+    this.movieID = props.movieID;
 
     this.deleteMovie=this.deleteMovie.bind(this);
   }
@@ -20,10 +20,10 @@ export default class Movie extends Component {
        return(
            <div className="movie fade-in">
                <span className="closebtn"
-                     onClick={() => this.deleteMovie(this.noteId)}>
+                     onClick={() => this.deleteMovie(this.movieID)}>
                      &times;
                </span>
-               <p className="MovieContent">{ this.noteContent }</p>
+               <p className="MovieContent">{ this.movieName}</p>
            </div>
        )
      }

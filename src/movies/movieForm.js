@@ -14,19 +14,25 @@ export default class MovieForm extends Component {
     this.setState({movieName: e.target.value});
   }
 
-  listMovie(){
+  listMovie(e){
+    //keep the page from refreshing
+    e.preventDefault();
+    e.stopPropagation();
+
     this.props.addMovie(this.state.movieName);
     this.setState({movieName: ""});
   }
   render(){
         return(
             <div className="formWrapper">
+              <form onSubmit = {this.listMovie}>
                 <input className="movieInput"
                 placeholder="Write a new movie..."
                 value={this.state.movieName}
                 onChange={this.handleUserInput} />
               <button className="movieButton"
                 onClick={this.listMovie}>Add Movie</button>
+              </form>
             </div>
         )
 }
