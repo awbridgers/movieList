@@ -60,3 +60,42 @@ body {
   flex: 1 1 5%;
   background-color: rgba(0,0,0,0.5);
 }
+
+.googleButton{
+  background: url("./googleSignInNormal.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 50px;
+  width: 200px;
+  position: relative;
+  top: -450px;
+}
+
+.googleButton:hover{
+  background: url("./googleSignInFocus.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 50px;
+  width: 200px;
+}
+
+.googleButton:active{
+  background: url("./googleSignInPressed.png") no-repeat contain;
+  height: 50px;
+  width: 200px;
+}
+
+.signOut{
+  height: 25px;
+  width: 75px;
+  background-color: #4169E1;
+  position: absolute;
+  top: 0px;
+  right: 5px;
+}
+.signOut:hover{
+  background-color: #87CEEB;
+}
+.signOut:active{
+  background-color: #708090;
+}
