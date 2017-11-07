@@ -18,9 +18,10 @@ export default class MovieForm extends Component {
     //keep the page from refreshing
     e.preventDefault();
     e.stopPropagation();
-
-    this.props.addMovie(this.state.movieName);
-    this.setState({movieName: ""});
+    if(this.state.movieName.length !== 0){       //don't push blank entries 
+      this.props.addMovie(this.state.movieName);
+      this.setState({movieName: ""});
+  }
   }
   render(){
         return(
