@@ -23,17 +23,12 @@ class App extends Component {
     this.logOut = this.logOut.bind(this);
 
     this.app = firebase.initializeApp(DBconfig);
-
-
     this.state = {movies: [], loggedIn: false};
     }
-  componentWillMount(){
-    }
-
+  componentWillMount(){}
   addListeners(){
-    console.log("listening");
+    //try to add event listeners. Using "try" so if ref is not properly set it won't crash to program
     try{
-      console.log("your speed");
       const currentMovies = this.state.movies;
       //event listener for movie added to database
       this.childAdded=this.ref.on('child_added', snapshot => {
@@ -60,37 +55,37 @@ class App extends Component {
     }
   }
 
-logInWithGoogle(){
-  console.log("test");
-  let provider = new firebase.auth.GoogleAuthProvider();
-  firebase.auth().signInWithPopup(provider).then(function(result) {
-  // This gives you a Google Access Token. You can use it to access the Google API.
-  var token = result.credential.accessToken;
-  // The signed-in user info.
-  var user = result.user;
-  this.uid = firebase.auth().currentUser.uid;
-  this.ref= this.app.database().ref(this.uid).child('movies');
-  this.addListeners();
-  this.setState({loggedIn:true});
-  // ...
-}.bind(this)).catch(function(error) {
-  // Handle Errors here.
-  var errorCode = error.code;
-  var errorMessage = error.message;
-  // The email of the user's account used.
-  var email = error.email;
-  // The firebase.auth.AuthCredential type that was used.
-  var credential = error.credential;
-  // ...
-  });
-  }
+  logInWithGoogle(){
+    let provider = new firebase.auth.GoogleAuthProvider();
+    firebase.auth().signInWithPopup(provider).then(function(result) {
+    // This gives you a Google Access Token. You can use it to access the Google API.
+    var token = result.credential.accessToken;
+    // The signed-in user info.
+    var user = result.user;
+    this.uid = firebase.auth().currentUser.uid;
+    this.ref= this.app.database().ref(this.uid).child('movies');
+    this.addListeners();
+    this.setState({loggedIn:true});
+    // ...
+    }.bind(this)).catch(function(error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      // The email of the user's account used.
+      var email = error.email;
+      // The firebase.auth.AuthCredential type that was used.
+      var credential = error.credential;
+      // ...
+      });
+    }
 
-  //FIXME: Logging out and back in results in 2 copies of each item => 2 listeners? need to deactivate on logout
+
   logOut(){
     if(this.state.loggedIn){
       console.log(firebase.auth().currentUser.uid);
-      firebase.auth().signOut().then(()=>{console.log("SignOutSuccessful")});
-      this.setState({loggedIn: false});
+      this.ref.off();
+      firebase.auth().signOut().then(()=>{console.log("Sign Out Successful");});
+      this.setState({loggedIn: false, movies: []});
     }
     else{
       console.log("Already Logged Out");
