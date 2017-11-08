@@ -2,7 +2,7 @@
   "name": "movie_list",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/awbridgers/movieList",
+  "homepage": "https://awbridgers.github.io/movieList",
   "dependencies": {
     "firebase": "^4.6.1",
     "gh-pages": "^1.0.0",
