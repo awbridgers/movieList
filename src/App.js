@@ -102,14 +102,15 @@ class App extends Component {
   render(){
     if(!this.state.loggedIn){
       return(
-        <div className="movieWrapper">
+        <div>
           <div className="movieHeader">
             <div className="heading">Please Log In</div>
             <button className = "signOut" onClick = {this.logOut}>Sign Out</button>
           </div>
           <div style = {{textAlign: "center", color: "white"}}>
             <h1>Select a sign in method:</h1>
-            <button className = "googleButton" onClick = {this.logInWithGoogle}></button>
+            <p><button className = "googleButton" onClick = {this.logInWithGoogle}></button></p>
+            <p><button className = 'facebookButton'></button></p>
           </div>
         </div>
       )

@@ -6,7 +6,7 @@ body {
   width: 100%;
   min-height:100%;
   background:
-    url("./backgroundimage2.jpg");
+    url("./images/backgroundimage2.jpg");
     background-size: cover;
 
 
@@ -62,28 +62,25 @@ body {
 }
 
 .googleButton{
-  background: url("./googleSignInNormal.png");
-  background-size: contain;
+  background: url("./images/googleButton.png");
   background-repeat: no-repeat;
-  height: 50px;
-  width: 200px;
-  position: relative;
-  top: -450px;
+  height: 65px;
+  width: 300px;
+  text-align: center;
+  position: absolute;
+  top:200px;
+  left:0;
+  right:0;
+  margin: auto;
 }
 
 .googleButton:hover{
-  background: url("./googleSignInFocus.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  height: 50px;
-  width: 200px;
+  background: url("./images/googleButtonHover.png") no-repeat;
+  height: 65px;
+  width: 300px;
+
 }
 
-.googleButton:active{
-  background: url("./googleSignInPressed.png") no-repeat contain;
-  height: 50px;
-  width: 200px;
-}
 
 .signOut{
   height: 25px;
@@ -98,4 +95,22 @@ body {
 }
 .signOut:active{
   background-color: #708090;
+}
+
+.facebookButton{
+  background: url("./images/facebookButton.png") no-repeat;
+  background-repeat: no-repeat;
+  height: 65px;
+  width: 300px;
+  position: absolute;
+  top:260px;
+  left:0;
+  right:0;
+  margin: auto;
+}
+
+.facebookButton:hover{
+  background: url("./images/facebookButtonHover.png")no-repeat;
+  height: 65px;
+  width: 300px;
 }
