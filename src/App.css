@@ -114,3 +114,19 @@ body {
   height: 65px;
   width: 300px;
 }
+
+.twitterButton{
+  background: url("./images/twitterButton.png") no-repeat;
+  height: 65px;
+  width: 300px;
+  position: absolute;
+  top:320px;
+  left:0;
+  right:0;
+  margin: auto;
+}
+.twitterButton:hover{
+  background: url("./images/twitterButtonHover.png")no-repeat;
+  height: 65px;
+  width: 300px;
+}

@@ -21,6 +21,7 @@ class App extends Component {
     this.logIn = this.logIn.bind(this);
     this.googleLogIn = this.googleLogIn.bind(this);
     this.facebookLogIn = this.facebookLogIn.bind(this);
+    this.twitterLogIn= this.twitterLogIn.bind(this);
     this.addListeners=this.addListeners.bind(this);
     this.logOut = this.logOut.bind(this);
 
@@ -64,6 +65,10 @@ class App extends Component {
     this.provider = new firebase.auth.FacebookAuthProvider();
     this.logIn();
   }
+  twitterLogIn(){
+    this.provider = new firebase.auth.TwitterAuthProvider();
+    this.logIn();
+  }
   logIn(){
     firebase.auth().signInWithPopup(this.provider).then(function(result) {
     // This gives you a Google Access Token. You can use it to access the Google API.
@@ -85,7 +90,7 @@ class App extends Component {
       var credential = error.credential;
       // ...
       });
-      
+
     }
 
 
@@ -120,6 +125,7 @@ class App extends Component {
             <h1>Select a sign in method:</h1>
             <p><button className = "googleButton" onClick = {this.googleLogIn}></button></p>
             <p><button className = 'facebookButton' onClick = {this.facebookLogIn}></button></p>
+            <p><buton className = 'twitterButton' onClick ={this.twitterLogIn}></buton></p>
           </div>
         </div>
       )
