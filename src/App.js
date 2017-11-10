@@ -18,7 +18,9 @@ class App extends Component {
     super(props);
     this.addMovie = this.addMovie.bind(this);
     this.removeMovie = this.removeMovie.bind(this);
-    this.logInWithGoogle = this.logInWithGoogle.bind(this);
+    this.logIn = this.logIn.bind(this);
+    this.googleLogIn = this.googleLogIn.bind(this);
+    this.facebookLogIn = this.facebookLogIn.bind(this);
     this.addListeners=this.addListeners.bind(this);
     this.logOut = this.logOut.bind(this);
 
@@ -54,10 +56,16 @@ class App extends Component {
       console.log(this.state.loggedIn);
     }
   }
-
-  logInWithGoogle(){
-    let provider = new firebase.auth.GoogleAuthProvider();
-    firebase.auth().signInWithPopup(provider).then(function(result) {
+  googleLogIn(){
+    this.provider = new firebase.auth.GoogleAuthProvider();
+    this.logIn();
+  }
+  facebookLogIn(){
+    this.provider = new firebase.auth.FacebookAuthProvider();
+    this.logIn();
+  }
+  logIn(){
+    firebase.auth().signInWithPopup(this.provider).then(function(result) {
     // This gives you a Google Access Token. You can use it to access the Google API.
     var token = result.credential.accessToken;
     // The signed-in user info.
@@ -77,6 +85,7 @@ class App extends Component {
       var credential = error.credential;
       // ...
       });
+      
     }
 
 
@@ -109,8 +118,8 @@ class App extends Component {
           </div>
           <div style = {{textAlign: "center", color: "white"}}>
             <h1>Select a sign in method:</h1>
-            <p><button className = "googleButton" onClick = {this.logInWithGoogle}></button></p>
-            <p><button className = 'facebookButton'></button></p>
+            <p><button className = "googleButton" onClick = {this.googleLogIn}></button></p>
+            <p><button className = 'facebookButton' onClick = {this.facebookLogIn}></button></p>
           </div>
         </div>
       )
