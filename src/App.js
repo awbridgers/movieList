@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Movie from './movies/movies';
 import MovieForm from './movies/movieForm';
+import LogInComp from './logIn/logIn.jsx';
 import './App.css';
 import * as firebase from 'firebase'
 let DBconfig = {
@@ -121,12 +122,7 @@ class App extends Component {
             <div className="heading">Please Log In</div>
             <button className = "signOut" onClick = {this.logOut}>Sign Out</button>
           </div>
-          <div style = {{textAlign: "center", color: "white"}}>
-            <h1>Select a sign in method:</h1>
-            <p><button className = "googleButton" onClick = {this.googleLogIn}></button></p>
-            <p><button className = 'facebookButton' onClick = {this.facebookLogIn}></button></p>
-            <p><buton className = 'twitterButton' onClick ={this.twitterLogIn}></buton></p>
-          </div>
+          <LogInComp twitter = {this.twitterLogIn} facebook = {this.facebookLogIn} google = {this.googleLogIn}/>
         </div>
       )
     }

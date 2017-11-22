@@ -1,0 +1,73 @@
+
+.googleButton{
+  background: url("../images/googleButton.png");
+  background-repeat: no-repeat;
+  height: 60px;
+  width: 273px;
+  text-align: center;
+  position: absolute;
+  top:200px;
+  left:0;
+  right:0;
+  margin: auto;
+  border: none;
+}
+
+.googleButton:hover{
+  background: url("../images/googleButtonHover.png") no-repeat;
+  height: 60px;
+  width: 273px;
+
+}
+
+
+.signOut{
+  height: 25px;
+  width: 75px;
+  background-color: #4169E1;
+  position: absolute;
+  top: 0px;
+  right: 5px;
+}
+.signOut:hover{
+  background-color: #87CEEB;
+}
+.signOut:active{
+  background-color: #708090;
+}
+
+.facebookButton{
+  background: url("../images/facebookButton.png") no-repeat;
+  background-repeat: no-repeat;
+  height: 60px;
+  width: 273px;
+  position: absolute;
+  top:260px;
+  left:0;
+  right:0;
+  margin: auto;
+  border: none;
+}
+
+.facebookButton:hover{
+  background: url("../images/facebookButtonHover.png")no-repeat;
+  height: 60px;
+  width: 273px;
+}
+
+.twitterButton{
+  background: url("../images/twitterButton.png") no-repeat;
+  height: 60px;
+  width: 273px;
+  position: absolute;
+  top:320px;
+  left:0;
+  right:0;
+  margin: auto;
+  border: none;
+}
+.twitterButton:hover{
+  background: url("../images/twitterButtonHover.png")no-repeat;
+  height: 60px;
+  width: 273px;
+}
